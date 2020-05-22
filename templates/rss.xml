@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="{{ url_for('static', filename='css/rss.css') }}" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>The Latest from Marten</title>
+<description>Updates from Marten Kante. Throw this in your RSS feeder for instant updates!</description>
+<language>en-us</language>
+<link>/blog/feed.xml</link>
+<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+
+{% autoescape off %}
+{{ content_string }}
+{% endautoescape %}
+
+</channel>
+</rss>
