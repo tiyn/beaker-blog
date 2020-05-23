@@ -1,0 +1,76 @@
+:root {
+    --bg0: rgb(29,32,33);
+    --color0: rgb(0,0,0);
+    --error: rgb(255,0,0);
+    --footerbg0: rgb(29,32,33);
+    --link0: rgb(220, 120, 0);
+    --link1: rgb(255,255,255);
+    --menulink0: rgb(220, 120, 0);
+    --menulink1: rgb(255,255,255);
+    --menubg0: rgb(29,32,33);
+    --text0: rgb(235,219,178);
+    --text1: rgb(220, 120, 0);
+    --transtime: 0.7s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--link0);
+    text-decoration: none;
+    transition: var(--transtime);
+}
+
+a:hover {
+    color: var(--link1);
+    cursor: pointer;
+}
+
+body {
+    background: var(--bg0);
+    margin: 0;
+}
+
+body,
+html {
+    font-family: sans-serif;
+    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+span {
+    color: var(--text1);
+}
+
+.container {
+    color: var(--text0);
+    min-height: 100%;
+    padding-bottom: 50px;
+    padding-left: 10%;
+	padding-right: 10%;
+    padding-top: 5%;
+}
+
+.container h1,
+.container h2 {
+    color: var(--text1);
+}
+
+.entry {
+	background: var(--blogbg0);
+	border-left: 10px solid var(--blogclr0);
+	border-radius: 0 10px 30px 0;
+    color: var(--text0);
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.entry h1,
+.entry h2 {
+    color: var(--text1);
+    margin: 5px auto 2px auto;
+}
