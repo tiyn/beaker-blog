@@ -94,7 +94,7 @@ def get_rss_string():
                 filename = filename.split('.',1)[0]
             content_string += '<item>\n'
             content_string += '<title>' + title + '</title>\n'
-            content_string += '<guid>' + '/index.html#' + filename + '</guid>\n'
+            content_string += '<guid>' + website + '/index.html#' + filename + '</guid>\n'
             content_string += '<pubDate>' + datetime.fromtimestamp(os.path.getctime(file)).strftime('%Y-%m-%d') + '</pubDate>\n'
             content_string += '<description>'
             for line in text:
