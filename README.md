@@ -1,6 +1,6 @@
 # Python Flask Blog
 
-This is a blog based on Pythons Flask framework.
+This is a simple blog based on Pythons Flask framework.
 
 ## Installation
 
@@ -15,3 +15,8 @@ This is a blog based on Pythons Flask framework.
 
 Blog entries are managed by plain html files in the `templates/entry/` directory.
 The first line of each document is reserved as the title of the document.
+
+## To-Do
+
+- CSS pgrade
+- Markdown support
