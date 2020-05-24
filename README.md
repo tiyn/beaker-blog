@@ -2,6 +2,22 @@
 
 This is a simple blog based on Pythons Flask framework.
 
+## Usage
+
+### Create entries
+
+Blog entries are managed by plain html files in the `templates/entry/` directory.
+The first line of each document is reserved as the title of the document.
+You have to specify the filetype by extension.
+
+Currently supported filetypes are:
+- HTML (.html)
+- Markdown (.md)
+
+## To-Do
+
+- CSS upgrade
+
 ## Deployment
 
 ### PIP/Python
@@ -32,19 +48,3 @@ Set the following ports with the -p tag.
 #### Example run-command
 
 `docker run --name blog --restart unless-stopped -v css:/blog/src/static/css -v html:/blog/src/templates -p 80:5000 -d tiynger/flaskblog`
-
-## Usage
-
-### Create entries
-
-Blog entries are managed by plain html files in the `templates/entry/` directory.
-The first line of each document is reserved as the title of the document.
-You have to specify the filetype by extension.
-
-Currently supported filetypes are:
-- HTML (.html)
-- Markdown (.md)
-
-## To-Do
-
-- CSS upgrade
