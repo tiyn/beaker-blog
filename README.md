@@ -23,6 +23,8 @@ Currently supported filetypes are:
 
 ### PIP/Python
 
+- `git clone https://github.com/tiyn/flaskblog`
+- `cd flaskblog/src`
 - `pip3install -r requirements.txt` - install depenencies
 - run `python app.py`
 - blog is available on port 5000
