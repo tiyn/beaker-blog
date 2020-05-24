@@ -4,7 +4,7 @@ MAINTAINER Tiyn tiyn@martenkante.eu
 
 RUN apt-get update
 
-RUN apt-get install python3 python3-pip -y
+RUN apt-get install python3 python3-pip git -y
 
 RUN git clone https://github.com/tiyn/flaskblog /blog
 
