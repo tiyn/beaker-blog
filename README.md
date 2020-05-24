@@ -17,6 +17,7 @@ Currently supported filetypes are:
 ## To-Do
 
 - CSS upgrade
+- More date info in archive
 
 ## Deployment
 
