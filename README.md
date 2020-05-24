@@ -2,7 +2,7 @@
 
 This is a simple blog based on Pythons Flask framework.
 
-## Usage
+## Deployment
 
 ### PIP/Python
 
@@ -32,6 +32,8 @@ Set the following ports with the -p tag.
 #### Example run-command
 
 `docker run --name blog --restart unless-stopped -v css:/blog/src/static/css -v html:/blog/src/templates -p 80:5000 -d tiynger/flaskblog`
+
+## Usage
 
 ### Create entries
 
