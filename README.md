@@ -2,11 +2,36 @@
 
 This is a simple blog based on Pythons Flask framework.
 
-## Deployment
+## Usage
 
-- `pip3 install -r requirements.txt` - install depenencies
+### PIP/Python
+
+- `pip3install -r requirements.txt` - install depenencies
 - run `python app.py`
 - blog is available on port 5000
+
+### Docker
+
+#### Volumes
+
+Set the following volumes with the -v tag.
+
+| Volume-Name | Container mount      | Description                                                           |
+|-------------|----------------------|-----------------------------------------------------------------------|
+| css         | /blog/src/static/css | Directory for css files                                               |
+| html        | /blog/src/templates  | Directory for templates and html documents (contains entry directory) |
+
+#### Ports
+
+Set the following ports with the -p tag.
+
+| Container-Port | Recommended outside port | Protocol | Description |
+|----------------|--------------------------|----------|-------------|
+| 5000           | 80                       | TCP      | HTTP port   |
+
+#### Example run-command
+
+`docker run --name blog --restart unless-stopped -v css:/blog/src/static/css -v html:/blog/src/templates -p 80:5000 -d tiynger/flaskblog`
 
 ### Create entries
 
