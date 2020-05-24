@@ -4,7 +4,7 @@ This is a simple blog based on Pythons Flask framework.
 
 ## Deployment
 
-- `pip3 install requirements.txt` - install depenencies
+- `pip3 install -r requirements.txt` - install depenencies
 - run `python app.py`
 - blog is available on port 5000
 
