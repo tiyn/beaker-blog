@@ -16,6 +16,8 @@ Currently supported filetypes are:
 
 ## To-Do
 
+- Header
+- Footer
 - CSS switch with (Environment) Variable
   - Light Theme
   - Dark Theme
