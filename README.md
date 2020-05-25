@@ -16,7 +16,9 @@ Currently supported filetypes are:
 
 ## To-Do
 
-- CSS upgrade
+- CSS switch with (Environment) Variable
+  - Light Theme
+  - Dark Theme
 - More date info in archive
 
 ## Deployment
