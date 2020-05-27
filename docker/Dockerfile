@@ -12,9 +12,7 @@ WORKDIR /blog/src
 
 RUN pip3 install -r requirements.txt
 
-VOLUME /blog/src/static/css
-
-VOLUME /blog/src/templates
+VOLUME /blog/src/templates/entry
 
 EXPOSE 5000
 

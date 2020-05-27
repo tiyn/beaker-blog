@@ -25,7 +25,6 @@ However I dislike using a script for adding entries and just want to add entries
     - [x] CSS light-theme
 - [x] Config file
 - [x] Docker installation
-    - [ ] include config.py
 
 ## Usage
 
@@ -41,20 +40,26 @@ You have to specify the filetype by extension.
 
 - `git clone https://github.com/tiyn/tiyny-blog`
 - `cd flaskblog/src`
+- edit the `config.py` file according to your needs
 - `pip3install -r requirements.txt` - install depenencies
 - run `python app.py`
 - blog is available on port 5000
 
 ### Docker
 
+Make sure you copy an example `config.py` and edit it before running the container.
+The `config.py` can be found in the `src` folder.
+
 #### Volumes
 
 Set the following volumes with the -v tag.
 
-| Volume-Name | Container mount      | Description                                                           |
-|-------------|----------------------|-----------------------------------------------------------------------|
-| css         | /blog/src/static/css | Directory for css files                                               |
-| html        | /blog/src/templates  | Directory for templates and html documents (contains entry directory) |
+| Volume-Name | Container mount           | Description                                                  |
+|-------------|---------------------------|--------------------------------------------------------------|
+| config-file | /blog/src/config.py       | Config file                                                  |
+| entries     | /blog/src/templates/entry | Directory for blog entries                                   |
+| css         | /blog/src/static/css      | (optional) Directory for css files                           |
+| html        | /blog/src/templates       | (optional) Directory for templates (entry-volume not needed) |
 
 #### Ports
 
@@ -66,4 +71,4 @@ Set the following ports with the -p tag.
 
 #### Example run-command
 
-`docker run --name blog --restart unless-stopped -v css:/blog/src/static/css -v html:/blog/src/templates -p 80:5000 -d tiynger/tiyny-blog`
+`docker run --name blog --restart unless-stopped -v ./config.py:/blog/src/config.py -v entries:/blog/src/templates/entry -p 80:5000 -d tiynger/tiyny-blog`
