@@ -6,11 +6,11 @@ This is a simple blog based on Pythons Flask framework.
 
 - [x] Infinite-scroll blog page
 - [x] Archive page
-  - &#9744; Headers and dates
+  - [ ] Headers and dates
 - [x] RSS feed
 - [ ] Navigation: Header, Footer
-- &#9744; CSS dark-theme
-- &#9744; CSS light-theme
+- [ ] CSS dark-theme
+- [ ] CSS light-theme
 
 ## Usage
 
