@@ -23,6 +23,7 @@ However I dislike using a script for adding entries and just want to add entries
 - [x] Switchable CSS
     - [x] CSS dark-theme
     - [x] CSS light-theme
+- [x] Config file
 - [x] Docker installation
     - [ ] include config.py
 
