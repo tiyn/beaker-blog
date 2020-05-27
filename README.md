@@ -4,13 +4,20 @@ This is a simple blog based on Pythons Flask framework.
 
 ## Features/To-Dos
 
+- [x] Plain text support for blog entries
+  - [x] HTML files (.html)
+  - [x] Markdown Files (.md)
 - [x] Infinite-scroll blog page
 - [x] Archive page
-  - [ ] Headers and dates
+  - [ ] Months as headings
 - [x] RSS feed
-- [ ] Navigation: Header, Footer
-- [ ] CSS dark-theme
-- [ ] CSS light-theme
+- [ ] Better navigation
+  - [ ] Header
+  - [ ] Footer
+- [ ] Switchable CSS
+  - [ ] CSS dark-theme
+  - [ ] CSS light-theme
+- [x] Docker installation
 
 ## Usage
 
@@ -19,12 +26,6 @@ This is a simple blog based on Pythons Flask framework.
 Blog entries are managed by plain html files in the `templates/entry/` directory.
 The first line of each document is reserved as the title of the document.
 You have to specify the filetype by extension.
-
-Currently supported filetypes are:
-- HTML (.html)
-- Markdown (.md)
-
-
 
 ## Deployment
 
