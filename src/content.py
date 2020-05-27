@@ -17,12 +17,19 @@ def gen_arch_string():
         full_list = [os.path.join(path_ex, i) for i in name_list]
         contents = sorted(full_list, key=os.path.getctime)
         content_string = ''
+        last_month = ''
         for file in reversed(contents):
+            curr_date = datetime.fromtimestamp(os.path.getctime(file)).strftime('%Y-%m-%d')
+            curr_month = datetime.fromtimestamp(os.path.getctime(file)).strftime('%b %Y')
+            if curr_month != last_month:
+                content_string += '<h2>' + curr_month + '</h2>'
+                last_month = curr_month
             filename = pathlib.PurePath(file)
             title = open(filename).readline().rstrip('\n')
             filename = filename.name
             if filename[0] != '.':
                 filename = filename.split('.', 1)[0]
+            content_string += curr_date + ' - '
             content_string += '<a href="' + '/index.html#' + \
                 filename + '">' + title + '</a><br>\n'
         return content_string

@@ -5,18 +5,21 @@ This is a simple blog based on Pythons Flask framework.
 ## Features/To-Dos
 
 - [x] Plain text support for blog entries
-  - [x] HTML files (.html)
-  - [x] Markdown Files (.md)
+    - [x] HTML files (.html)
+    - [x] Markdown Files (.md)
 - [x] Infinite-scroll blog page
 - [x] Archive page
-  - [ ] Months as headings
+    - [x] Months as headings
+    - [x] Links to scrolling blog page
+    - [ ] Links to standalone article
+- [ ] Standalone article page
 - [x] RSS feed
 - [ ] Better navigation
-  - [ ] Header
-  - [ ] Footer
+    - [ ] Header
+    - [ ] Footer
 - [ ] Switchable CSS
-  - [ ] CSS dark-theme
-  - [ ] CSS light-theme
+    - [ ] CSS dark-theme
+    - [ ] CSS light-theme
 - [x] Docker installation
 
 ## Usage
