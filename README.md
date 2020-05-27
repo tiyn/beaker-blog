@@ -8,7 +8,7 @@ This is a simple blog based on Pythons Flask framework.
 - [x] Archive page
   - &#9744; Headers and dates
 - [x] RSS feed
-- &#9744; Navigation: Header, Footer
+- [ ] Navigation: Header, Footer
 - &#9744; CSS dark-theme
 - &#9744; CSS light-theme
 
