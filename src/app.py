@@ -1,4 +1,4 @@
-from flask import Flask, flash, make_response, render_template, request, redirect
+from flask import Flask, flash, make_response, render_template, request, redirect, abort
 
 import content as con_gen
 
@@ -23,6 +23,13 @@ def index():
 def blog_archive():
     content = con_gen.gen_arch_string()
     return render_template('archive.html', title='Blog Archive', content_string=content)
+
+@app.route('/entry/<path>')
+def entry(path):
+    content = con_gen.gen_stand_string(path)
+    if content != '':
+        return render_template('standalone.html', title='Blog Entry', content_string=content)
+    abort(404)
 
 
 @app.route('/feed.xml')

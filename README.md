@@ -13,8 +13,9 @@ However I dislike using a script for adding entries and just want to add entries
 - [x] Archive page
     - [x] Months as headings
     - [x] Links to scrolling blog page
-    - [ ] Links to standalone article
-- [ ] Standalone article page
+    - [x] Links to standalone article
+- [x] Standalone article page
+    - [x] Links to scrolling blog page
 - [x] RSS feed
 - [ ] Better navigation
     - [ ] Header

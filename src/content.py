@@ -36,8 +36,12 @@ def gen_arch_string():
                 filename = filename.split('.', 1)[0]
             content_string += '<li>'
             content_string += curr_date + ' - '
+            content_string +=  title + ' ['
             content_string += '<a href="' + '/index.html#' + \
-                filename + '">' + title + '</a><br>'
+                filename + '">' + 'link' + '</a> - '
+            content_string += '<a href="' + '/entry/' + \
+                pathlib.PurePath(file).name + '">' + 'standalone' + '</a>'
+            content_string += '] <br>'
             content_string += '</li>\n'
         content_string += '</ul>\n'
         return content_string
@@ -60,12 +64,14 @@ def gen_index_string():
                 filename = filename.split('.', 1)[0]
             content_string += '<div class=\'entry\'>\n'
             content_string += '<h2 id=\'' + filename + '\'>' + title + '</h2>\n'
+            content_string += '[<a href="' + '/entry/' + \
+                pathlib.PurePath(file).name + '">' + 'standalone' + '</a>]<br>\n'
             if file.endswith('.html'):
                 for line in text:
                     content_string += line
                 content_string += '<br>'
             if file.endswith('.md'):
-                content_string += gen_md_content(file)
+                content_string += gen_md_content(file, 2)
             content_string += '<small>' + \
                 datetime.fromtimestamp(os.path.getctime(
                     file)).strftime('%Y-%m-%d') + '</small>'
@@ -73,18 +79,40 @@ def gen_index_string():
     return content_string
 
 
-def gen_md_content(path_ex):
+def gen_stand_string(path_ex):
+    filename = os.path.join(ENTRY_DIR, path_ex)
+    content_string = ''
+    if path.exists(filename):
+        title = open(filename).readline().rstrip('\n')
+        text = open(filename).readlines()[1:]
+        filename_no_end = filename.split('.', 1)[0]
+        content_string += '<h1>' + title + '</h1>\n'
+        content_string += '['
+        content_string += '<a href="' + '/index.html#' + \
+            filename_no_end + '">' + 'link' + '</a>'
+        content_string += ']<br>\n'
+        if filename.endswith('.html'):
+            for line in text:
+                content_string += line
+            content_string += '<br>'
+        if filename.endswith('.md'):
+            content_string += gen_md_content(filename, 1)
+    return content_string
+
+
+def gen_md_content(path_ex, depth):
     content_string = ''
     if path.exists(path_ex):
         filename = path_ex.split('.', 1)
         fileend = filename[len(filename) - 1]
-        markdown_file = open(path_ex, "r")
-        depth = 2
         header = '#'
         for i in range(depth):
             header += '#'
         header += ' '
-        markdown_text = markdown_file.read().replace('# ', header)
+        markdown_lines = open(path_ex, "r").readlines()[1:]
+        markdown_text = ''
+        for line in markdown_lines:
+            markdown_text += line.replace('# ', header)
         content_string = markdown.markdown(
             markdown_text, extensions=["fenced_code", "tables"]
         )
