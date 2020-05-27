@@ -1,6 +1,8 @@
 # Python Flask Blog
 
 This is a simple blog based on Pythons Flask framework.
+The basic design is based on LukeSmithXYZs blog.
+However I dislike using a script for adding entries and just want to add entries via plain text files.
 
 ## Features/To-Dos
 

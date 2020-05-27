@@ -19,19 +19,27 @@ def gen_arch_string():
         content_string = ''
         last_month = ''
         for file in reversed(contents):
-            curr_date = datetime.fromtimestamp(os.path.getctime(file)).strftime('%Y-%m-%d')
-            curr_month = datetime.fromtimestamp(os.path.getctime(file)).strftime('%b %Y')
+            curr_date = datetime.fromtimestamp(
+                os.path.getctime(file)).strftime('%Y-%m-%d')
+            curr_month = datetime.fromtimestamp(
+                os.path.getctime(file)).strftime('%b %Y')
             if curr_month != last_month:
-                content_string += '<h2>' + curr_month + '</h2>'
+                if last_month != '':
+                    content_string += '</ul>\n'
+                content_string += '<h2>' + curr_month + '</h2>\n'
+                content_string += '<ul>\n'
                 last_month = curr_month
             filename = pathlib.PurePath(file)
             title = open(filename).readline().rstrip('\n')
             filename = filename.name
             if filename[0] != '.':
                 filename = filename.split('.', 1)[0]
+            content_string += '<li>'
             content_string += curr_date + ' - '
             content_string += '<a href="' + '/index.html#' + \
-                filename + '">' + title + '</a><br>\n'
+                filename + '">' + title + '</a><br>'
+            content_string += '</li>\n'
+        content_string += '</ul>\n'
         return content_string
 
 
