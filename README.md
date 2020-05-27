@@ -36,7 +36,7 @@ You have to specify the filetype by extension.
 
 ### PIP/Python
 
-- `git clone https://github.com/tiyn/flaskblog`
+- `git clone https://github.com/tiyn/tiyny-blog`
 - `cd flaskblog/src`
 - `pip3install -r requirements.txt` - install depenencies
 - run `python app.py`
@@ -63,4 +63,4 @@ Set the following ports with the -p tag.
 
 #### Example run-command
 
-`docker run --name blog --restart unless-stopped -v css:/blog/src/static/css -v html:/blog/src/templates -p 80:5000 -d tiynger/flaskblog`
+`docker run --name blog --restart unless-stopped -v css:/blog/src/static/css -v html:/blog/src/templates -p 80:5000 -d tiynger/tiyny-blog`
