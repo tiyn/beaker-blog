@@ -23,6 +23,7 @@ However I dislike using a script for adding entries and just want to add entries
 - [ ] Switchable CSS
     - [ ] CSS dark-theme
     - [ ] CSS light-theme
+- [ ] Config file
 - [x] Docker installation
 
 ## Usage
