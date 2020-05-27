@@ -4,13 +4,13 @@ This is a simple blog based on Pythons Flask framework.
 
 ## Features/To-Dos
 
-[x] Infinite-scroll blog page
-[x] Archive page
-  [_] Headers and dates
-[x] RSS feed
-[_] Navigation: Header, Footer
-[_] CSS dark-theme
-[_] CSS light-theme
+- [x] Infinite-scroll blog page
+- [x] Archive page
+  - [_] Headers and dates
+- [x] RSS feed
+- [_] Navigation: Header, Footer
+- [_] CSS dark-theme
+- [_] CSS light-theme
 
 ## Usage
 
