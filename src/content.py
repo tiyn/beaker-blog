@@ -5,7 +5,7 @@ import os
 from os import path
 import pathlib
 
-WEBSITE = 'localhost:5000'
+import config
 
 ENTRY_DIR = 'templates/entry'
 
@@ -36,7 +36,7 @@ def gen_arch_string():
                 filename = filename.split('.', 1)[0]
             content_string += '<li>'
             content_string += curr_date + ' - '
-            content_string +=  title + ' ['
+            content_string += title + ' ['
             content_string += '<a href="' + '/index.html#' + \
                 filename + '">' + 'link' + '</a> - '
             content_string += '<a href="' + '/entry/' + \
@@ -65,7 +65,8 @@ def gen_index_string():
             content_string += '<div class=\'entry\'>\n'
             content_string += '<h2 id=\'' + filename + '\'>' + title + '</h2>\n'
             content_string += '[<a href="' + '/entry/' + \
-                pathlib.PurePath(file).name + '">' + 'standalone' + '</a>]<br>\n'
+                pathlib.PurePath(file).name + '">' + \
+                'standalone' + '</a>]<br>\n'
             if file.endswith('.html'):
                 for line in text:
                     content_string += line
@@ -135,7 +136,8 @@ def get_rss_string():
                 filename = filename.split('.', 1)[0]
             content_string += '<item>\n'
             content_string += '<title>' + title + '</title>\n'
-            content_string += '<guid>' + '/index.html#' + filename + '</guid>\n'
+            content_string += '<guid>' + config.WEBSITE + \
+                '/index.html#' + filename + '</guid>\n'
             content_string += '<pubDate>' + \
                 datetime.fromtimestamp(os.path.getctime(file)).strftime(
                     '%Y-%m-%d') + '</pubDate>\n'

@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
 <channel>
-    <title>Blog Title</title>
-    <description>A short description of the blog.</description>
+    <title>{{ title }}</title>
+    <description>{{ description }}</description>
 <language>en-us</language>
-<link>localhost:5000/feed.xml</link>
+<link>{{ website }}/feed.xml</link>
 <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 
 {% autoescape off %}

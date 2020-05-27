@@ -18,12 +18,13 @@ However I dislike using a script for adding entries and just want to add entries
     - [x] Links to scrolling blog page
 - [x] RSS feed
 - [ ] Better navigation
-    - [ ] Header
+    - [x] Header
     - [ ] Footer
-- [ ] Switchable CSS
-    - [ ] CSS dark-theme
-    - [ ] CSS light-theme
+- [x] Switchable CSS
+    - [x] CSS dark-theme
+    - [x] CSS light-theme
 - [x] Docker installation
+    - [ ] include config.py
 
 ## Usage
 
