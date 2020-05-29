@@ -17,7 +17,7 @@ However I dislike using a script for adding entries and just want to add entries
 - [x] Standalone article page
     - [x] Links to scrolling blog page
 - [x] RSS feed
-- [x] Better navigation
+- [x] Navigation
     - [x] Header
     - [x] Footer
 - [x] Switchable CSS
@@ -26,6 +26,7 @@ However I dislike using a script for adding entries and just want to add entries
 - [x] Config file
 - [x] Docker installation
     - [ ] Enable variables/environment variables
+- [ ] Logo
 
 ## Usage
 
