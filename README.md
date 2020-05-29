@@ -17,9 +17,9 @@ However I dislike using a script for adding entries and just want to add entries
 - [x] Standalone article page
     - [x] Links to scrolling blog page
 - [x] RSS feed
-- [ ] Better navigation
+- [x] Better navigation
     - [x] Header
-    - [ ] Footer
+    - [x] Footer
 - [x] Switchable CSS
     - [x] CSS dark-theme
     - [x] CSS light-theme
