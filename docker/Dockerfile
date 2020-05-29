@@ -6,7 +6,7 @@ RUN apt-get update
 
 RUN apt-get install python3 python3-pip git -y
 
-RUN git clone https://github.com/tiyn/flaskblog /blog
+RUN git clone https://github.com/tiyn/tiyny-blog /blog
 
 WORKDIR /blog/src
 
