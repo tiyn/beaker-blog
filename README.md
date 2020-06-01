@@ -41,7 +41,7 @@ You have to specify the filetype by extension.
 ### PIP/Python
 
 - `git clone https://github.com/tiyn/tiyny-blog`
-- `cd flaskblog/src`
+- `cd tiyny-blog/src`
 - edit the `config.py` file according to your needs
 - `pip3install -r requirements.txt` - install depenencies
 - run `python app.py`
