@@ -11,6 +11,12 @@ ENTRY_DIR = 'templates/entry'
 
 
 def gen_arch_string():
+    """
+    Creates and returns a archive string of every file in ENTRY_DIR.
+
+    Returns:
+    string: html-formatted archive-string
+    """
     path_ex = ENTRY_DIR
     if path.exists(path_ex):
         name_list = os.listdir(path_ex)
@@ -48,6 +54,12 @@ def gen_arch_string():
 
 
 def gen_index_string():
+    """
+    Create and returns a string including every file in the ENTRY_DIR as an index.
+
+    Returns:
+    string: html-formatted index string
+    """
     path_ex = ENTRY_DIR
     content_string = ''
     if path.exists(path_ex):
@@ -81,6 +93,17 @@ def gen_index_string():
 
 
 def gen_stand_string(path_ex):
+    """
+    Creates a html-string for a file.
+    If the file is markdown it will convert it.
+    This functions ensures upscaling for future formats.
+
+    Parameters:
+    path_ex: path to a file.
+
+    Returns:
+    string: html-formatted string string equivalent to the file
+    """
     filename = os.path.join(ENTRY_DIR, path_ex)
     content_string = ''
     if path.exists(filename):
@@ -102,6 +125,16 @@ def gen_stand_string(path_ex):
 
 
 def gen_md_content(path_ex, depth):
+    """
+    Convert a markdown file to a html string.
+
+    Parameters:
+    path_ex (string): path to the markdown file
+    depth (int): starting depth for markdown headings
+
+    Returns:
+    string: html-formatted string string equivalent to the markdown file
+    """
     content_string = ''
     if path.exists(path_ex):
         filename = path_ex.split('.', 1)
@@ -121,6 +154,12 @@ def gen_md_content(path_ex, depth):
 
 
 def get_rss_string():
+    """
+    Create a rss-string of the blog and return it.
+
+    Returns:
+    string: rss-string of everything that is in the ENTRY_DIR.
+    """
     path_ex = ENTRY_DIR
     if path.exists(path_ex):
         name_list = os.listdir(path_ex)
