@@ -1,4 +1,4 @@
-# Python Flask Blog
+# Beaker Blog
 
 This is a simple blog based on Pythons Flask framework.
 The basic design is based on LukeSmithXYZs blog.
