@@ -1,8 +1,8 @@
 # Name/title of your blog
-TITLE = 'Tiyny-Blog'
+TITLE = 'Beaker Blog'
 
 # Description for RSS of your blog
-DESCRIPTION = 'This is your personal Tiyny-Blog.'
+DESCRIPTION = 'This is your personal Beaker Blog.'
 
 # URL for your website: e.g. https://domain.tld
 WEBSITE = 'localhost:5000'
