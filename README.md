@@ -27,7 +27,6 @@ However I dislike using a script for adding entries and just want to add entries
   - [x] CSS light-theme
 - [x] Config file
 - [x] Docker installation
-  - [ ] Enable variables/environment variables
 - [x] Logo
 
 ## Usage
@@ -42,7 +41,7 @@ You have to specify the filetype by extension.
 
 ### PIP/Python
 
-- `git clone https://github.com/tiyn/tiyny-blog`
+- `git clone https://github.com/tiyn/beaker-blog`
 - `cd tiyny-blog/src`
 - edit the `config.py` file according to your needs
 - `pip3install -r requirements.txt` - install depenencies
@@ -74,5 +73,7 @@ Set the following ports with the -p tag.
 | 5000           | 80                       | TCP      | HTTP port   |
 
 #### Example run-command
+Either use the docker image `tiynger/beaker-blog` or run `docker build . -t beaker-blog` in the top directory of this repository.
+If so you need to change the command below apropiately (`tiynger/beaker-blog` to `beaker-blog`).
 
-`docker run --name blog --restart unless-stopped -v ./config.py:/blog/src/config.py -v entries:/blog/src/templates/entry -p 80:5000 -d tiynger/tiyny-blog`
+`docker run --name blog --restart unless-stopped -v ./config.py:/blog/src/config.py -v entries:/blog/src/templates/entry -p 80:5000 -d tiynger/beaker-blog`
