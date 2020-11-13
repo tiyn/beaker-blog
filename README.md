@@ -4,7 +4,8 @@
 
 This is a simple blog based on Pythons Flask framework.
 The basic design is based on LukeSmithXYZs blog.
-However I dislike using a script for adding entries and just want to add entries via plain text files.
+However I dislike using a script for adding entries and just want to add entries
+via plain text files.
 
 ## Features/To-Dos
 
@@ -57,12 +58,12 @@ The `config.py` can be found in the `src` folder.
 
 Set the following volumes with the -v tag.
 
-| Volume-Name | Container mount           | Description                                                  |
-| ----------- | ------------------------- | ------------------------------------------------------------ |
-| config-file | /blog/src/config.py       | Config file                                                  |
-| entries     | /blog/src/templates/entry | Directory for blog entries                                   |
-| css         | /blog/src/static/css      | (optional) Directory for css files                           |
-| html        | /blog/src/templates       | (optional) Directory for templates (entry-volume not needed) |
+| Volume-Name   | Container mount             | Description                                                  |
+| ------------- | --------------------------- | ------------------------------------------------------------ |
+| `config-file` | `/blog/src/config.py`       | Config file                                                  |
+| `entries`     | `/blog/src/templates/entry` | Directory for blog entries                                   |
+| `css`         | `/blog/src/static/css`      | (optional) Directory for css files                           |
+| `html`        | `/blog/src/templates`       | (optional) Directory for templates (entry-volume not needed) |
 
 #### Ports
 
@@ -70,10 +71,13 @@ Set the following ports with the -p tag.
 
 | Container-Port | Recommended outside port | Protocol | Description |
 | -------------- | ------------------------ | -------- | ----------- |
-| 5000           | 80                       | TCP      | HTTP port   |
+| `5000`         | `80`                     | TCP      | HTTP port   |
 
 #### Example run-command
-Either use the docker image `tiynger/beaker-blog` or run `docker build . -t beaker-blog` in the top directory of this repository.
-If so you need to change the command below apropiately (`tiynger/beaker-blog` to `beaker-blog`).
+
+Either use the docker image `tiynger/beaker-blog` or run
+`docker build . -t beaker-blog` in the top directory of this repository.
+If so you need to change the command below apropiately
+(`tiynger/beaker-blog` to `beaker-blog`).
 
 `docker run --name blog --restart unless-stopped -v ./config.py:/blog/src/config.py -v entries:/blog/src/templates/entry -p 80:5000 -d tiynger/beaker-blog`
