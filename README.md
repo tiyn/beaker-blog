@@ -1,6 +1,6 @@
 # Beaker Blog
 
-![beaker-blog-logo](beaker_blog.png)
+![beaker-blog-logo](beaker_blog_alt.png)
 
 This is a simple blog based on Pythons Flask framework.
 The basic design is based on LukeSmithXYZs blog.
