@@ -75,9 +75,4 @@ Set the following ports with the -p tag.
 
 #### Example run-command
 
-Either use the docker image `tiynger/beaker-blog` or run
-`docker build . -t beaker-blog` in the top directory of this repository.
-If so you need to change the command below apropiately
-(`tiynger/beaker-blog` to `beaker-blog`).
-
-`docker run --name blog --restart unless-stopped -v ./config.py:/blog/src/config.py -v entries:/blog/src/templates/entry -p 80:5000 -d tiynger/beaker-blog`
+An example run command is shown in `rebuild.sh`.
