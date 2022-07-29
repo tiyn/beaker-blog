@@ -1,4 +1,4 @@
-from flask import Flask, flash, make_response, render_template, request, redirect, abort
+from flask import Flask, make_response, render_template, abort
 
 import content as con_gen
 import config
@@ -25,7 +25,7 @@ def index():
 
 @app.route("/archive")
 @app.route("/archive.html")
-def blog_archive():
+def archive():
     content = con_gen.gen_arch_string()
     return render_template("archive.html", title=TITLE, content_string=content, style=STYLE)
 
