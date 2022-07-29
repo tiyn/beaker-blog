@@ -43,7 +43,7 @@ You have to specify the filetype by extension.
 ### PIP/Python
 
 - `git clone https://github.com/tiyn/beaker-blog`
-- `cd tiyny-blog/src`
+- `cd beaker-blog/src`
 - edit the `config.py` file according to your needs
 - `pip3install -r requirements.txt` - install depenencies
 - run `python app.py`
