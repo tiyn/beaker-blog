@@ -60,10 +60,10 @@ Set the following volumes with the -v tag.
 
 | Volume-Name   | Container mount             | Description                                                  |
 | ------------- | --------------------------- | ------------------------------------------------------------ |
-| `config-file` | `/blog/src/config.py`       | Config file                                                  |
-| `entries`     | `/blog/src/templates/entry` | Directory for blog entries                                   |
-| `css`         | `/blog/src/static/css`      | (optional) Directory for css files                           |
-| `html`        | `/blog/src/templates`       | (optional) Directory for templates (entry-volume not needed) |
+| `config-file` | `/blog/config.py`       | Config file                                                  |
+| `entries`     | `/blog/templates/entry` | Directory for blog entries                                   |
+| `css`         | `/blog/static/css`      | (optional) Directory for css files                           |
+| `html`        | `/blog/templates`       | (optional) Directory for templates (entry-volume not needed) |
 
 #### Ports
 
