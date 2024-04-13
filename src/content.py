@@ -108,6 +108,7 @@ def gen_stand_string(path_ex):
         title = open(filename).readline().rstrip("\n")
         text = open(filename).readlines()[1:]
         filename_no_end = filename.split(".", 1)[0]
+        filename_no_end = filename_no_end.split("/")[-1]
         content_string += "<h1>" + title + "</h1>\n"
         content_string += "["
         content_string += "<a href=\"" + "/index.html#" + \

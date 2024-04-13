@@ -58,8 +58,8 @@ The `config.py` can be found in the `src` folder.
 
 Set the following volumes with the -v tag.
 
-| Volume-Name   | Container mount             | Description                                              |
-| ------------- | --------------------------- | -------------------------------------------------------- |
+| Volume-Name   | Container mount         | Description                                                  |
+| ------------- | ----------------------- | ------------------------------------------------------------ |
 | `config-file` | `/blog/config.py`       | Config file                                                  |
 | `entries`     | `/blog/templates/entry` | Directory for blog entries                                   |
 | `graphics`    | `/blog/static/graphics` | Directory for images needed for entries                      |
