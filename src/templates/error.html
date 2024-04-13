@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
     <div class="important">
-        Error<br>
+        {% if language=="de-de" %}Fehler{% else %}Error{% endif %}<br>
 	<span>{{ errorcode }}</span>
     </div>
 </div>

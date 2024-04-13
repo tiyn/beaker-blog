@@ -26,6 +26,9 @@ via plain text files.
 - [x] Switchable CSS
   - [x] CSS dark-theme
   - [x] CSS light-theme
+- [x] Language Support
+  - [x] English
+  - [x] German
 - [x] Config file
 - [x] Docker installation
 - [x] Logo
