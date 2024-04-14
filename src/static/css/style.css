@@ -76,6 +76,10 @@ footer .center {
     padding-top: 10px;
 }
 
+
+.main-menu-dropdown img {
+    float: left;
+}
 .main-menu-dropdown span {
     float: left;
     font-family: monospace;
