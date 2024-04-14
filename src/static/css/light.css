@@ -6,7 +6,7 @@
     --error: rgb(255,0,0);
     --footerbg0: rgb(192,192,192);
     --link0: rgb(0,0,120);
-    --link1: rgb(0,0,0);
+    --link1: rgb(192,192,192);
     --menulink0: rgb(0,0,120);
     --menulink1: rgb(255,255,255);
     --menubg0: rgb(192,192,192);
@@ -30,6 +30,14 @@ body {
 footer {
     background: var(--footerbg0);
     color: var(--text0);
+}
+
+.footer a {
+    color: var(--menulink0);
+}
+
+.footer a:hover {
+    color: var(--menulink1);
 }
 
 span {

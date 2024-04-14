@@ -82,7 +82,7 @@ footer .center {
 }
 .main-menu-dropdown span {
     float: left;
-    font-family: monospace;
+    font-family: Georgia, serif;
     font-size: 30px;
     font-weight: bold;
     line-height: 100px;
@@ -94,7 +94,7 @@ footer .center {
 
 .main-menu {
     float: right;
-    font-family: monospace;
+    font-family: Georgia, serif;
     font-size: 30px;
     font-weight: bold;
     line-height: 100px;
