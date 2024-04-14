@@ -182,3 +182,13 @@ ul {
 ol {
     padding-left:20px;
 }
+
+code {
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    page-break-inside: avoid;
+    font-family: monospace;
+    white-space: pre;
+    display: inline-block
+}
