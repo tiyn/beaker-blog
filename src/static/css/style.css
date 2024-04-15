@@ -175,6 +175,10 @@ figure {
     padding:20px;
 }
 
+.entry figure:last-child {
+    padding-bottom:0
+}
+
 ul {
     padding-left:20px;
 }

@@ -87,7 +87,6 @@ def gen_index_string():
       if file.endswith(".html"):
         for line in text:
           content_string += line
-        content_string += "<br>"
       if file.endswith(".md"):
         content_string += gen_md_content(file, 2)
       content_string += "</div>"
