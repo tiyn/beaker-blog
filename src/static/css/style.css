@@ -159,12 +159,27 @@ footer .center {
 .entry {
     border-radius: 0 10px 30px 0;
     margin-bottom: 20px;
-    padding: 10px;
+    padding-left: 20px;
 }
 
 .entry h1,
 .entry h2 {
-    margin: 5px auto 2px auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.blog h1:first-child {
+    padding-bottom: 20px;
+}
+
+.blogarchive h2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.entry h2:first-child {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .entry ul {
@@ -172,7 +187,8 @@ footer .center {
 }
 
 figure {
-    padding:20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .entry figure:last-child {
