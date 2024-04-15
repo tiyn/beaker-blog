@@ -51,11 +51,13 @@ span {
 
 .hide-menu:hover,
 .main-menu a:hover,
+.main-menu-dropdown a:hover,
 .show-menu:hover {
     color: var(--menulink1);
 }
 
-.main-menu a {
+.main-menu a,
+.main-menu-dropdown a {
     color: var(--menulink0);
 }
 

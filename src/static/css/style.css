@@ -80,7 +80,8 @@ footer .center {
 .main-menu-dropdown img {
     float: left;
 }
-.main-menu-dropdown span {
+.main-menu-dropdown span,
+.main-menu-dropdown a {
     float: left;
     font-family: Georgia, serif;
     font-size: 30px;
@@ -162,18 +163,21 @@ footer .center {
     padding-left: 20px;
 }
 
-.entry h1,
-.entry h2 {
+h1, h2 {
     padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.imprint h1:first-child {
     padding-bottom: 20px;
 }
 
 .blog h1:first-child {
-    padding-bottom: 20px;
-}
-
-.blogarchive h2 {
-    padding-top: 20px;
     padding-bottom: 20px;
 }
 

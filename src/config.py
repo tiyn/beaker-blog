@@ -1,6 +1,9 @@
 # Name/title of your blog
 TITLE = "Beaker Blog"
 
+# Short name/title of your blog
+STITLE = "Beaker Blog"
+
 # Description for RSS of your blog
 DESCRIPTION = "This is your personal Beaker Blog."
 
@@ -12,3 +15,6 @@ STYLE = "dark"
 
 # Language for the titles: en-us or de-de
 LANGUAGE = "en-us"
+
+# Mail address for the imprint
+MAIL = "dummy@mail.com"
