@@ -27,12 +27,12 @@ def gen_arch_string():
   if path.exists(path_ex):
     name_list = os.listdir(path_ex)
     full_list = [os.path.join(path_ex, i) for i in name_list]
-    contents = sorted(full_list, key=os.path.getctime)
+    contents = sorted(full_list, key=os.path.getmtime)
     content_string = ""
     last_month = ""
     for file in reversed(contents):
-      curr_date = datetime.fromtimestamp(os.path.getctime(file)).strftime("%Y-%m-%d")
-      curr_month = datetime.fromtimestamp(os.path.getctime(file)).strftime("%B %Y")
+      curr_date = datetime.fromtimestamp(os.path.getmtime(file)).strftime("%Y-%m-%d")
+      curr_month = datetime.fromtimestamp(os.path.getmtime(file)).strftime("%B %Y")
       if curr_month != last_month:
         if last_month != "":
           content_string += "</ul>\n"
@@ -67,7 +67,7 @@ def gen_index_string():
   if path.exists(path_ex):
     name_list = os.listdir(path_ex)
     full_list = [os.path.join(path_ex, i) for i in name_list]
-    contents = sorted(full_list, key=os.path.getctime)
+    contents = sorted(full_list, key=os.path.getmtime)
     for file in reversed(contents):
       filename = pathlib.PurePath(file)
       purefile = filename
@@ -82,7 +82,7 @@ def gen_index_string():
           pathlib.PurePath(file).name + "\">" + \
           title + "</a>" +"</h2>\n"
       content_string += "<small>" + \
-          datetime.fromtimestamp(os.path.getctime(
+          datetime.fromtimestamp(os.path.getmtime(
               file)).strftime("%Y-%m-%d") + "</small><br><br>"
       if file.endswith(".html"):
         for line in text:
@@ -110,7 +110,7 @@ def gen_stand_string(path_ex):
   if path.exists(filename):
     title = open(filename).readline().rstrip("\n")
     text = open(filename).readlines()[1:]
-    curr_date = datetime.fromtimestamp(os.path.getctime(filename)).strftime("%Y-%m-%d")
+    curr_date = datetime.fromtimestamp(os.path.getmtime(filename)).strftime("%Y-%m-%d")
     filename_no_end = filename.split(".", 1)[0]
     filename_no_end = filename_no_end.split("/")[-1]
     content_string += "<h1>" + title + "</h1>\n"
@@ -164,7 +164,7 @@ def get_rss_string():
   if path.exists(path_ex):
     name_list = os.listdir(path_ex)
     full_list = [os.path.join(path_ex, i) for i in name_list]
-    contents = sorted(full_list, key=os.path.getctime)
+    contents = sorted(full_list, key=os.path.getmtime)
     content_string = ""
     for file in reversed(contents):
       filename = pathlib.PurePath(file)
@@ -178,7 +178,7 @@ def get_rss_string():
       content_string += "<guid>" + config.WEBSITE + \
           "/index.html#" + filename + "</guid>\n"
       content_string += "<pubDate>" + \
-          datetime.fromtimestamp(os.path.getctime(file)).strftime(
+          datetime.fromtimestamp(os.path.getmtime(file)).strftime(
               "%Y-%m-%d") + "</pubDate>\n"
       content_string += "<description>"
       for line in text:
