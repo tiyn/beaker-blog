@@ -33,12 +33,12 @@ footer {
     color: var(--text0);
 }
 
-.footer a {
+footer a {
     color: var(--menulink0);
 }
 
-.footer a:hover {
-    color: var(--menulink1);
+footer a:hover {
+    color: var(--bg0);
 }
 
 span {
