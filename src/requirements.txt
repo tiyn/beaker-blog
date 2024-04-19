@@ -3,5 +3,4 @@ Markdown
 Whoosh
 WTForms
 Flask_WTF
-MarkupSafe
 Font-Awesome-Flask
