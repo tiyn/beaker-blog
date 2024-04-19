@@ -116,11 +116,10 @@ def gen_stand_string(path_ex):
     content_string += "<h1>" + title + "</h1>\n"
     content_string += "<a href=\"" + "/index.html#" + \
         filename_no_end + "\">" + curr_date + "</a>"
-    content_string += "<br>\n"
+    content_string += "<br><br>\n"
     if filename.endswith(".html"):
       for line in text:
         content_string += line
-      content_string += "<br>"
     if filename.endswith(".md"):
       content_string += gen_md_content(filename, 1)
   return content_string

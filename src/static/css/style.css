@@ -177,6 +177,10 @@ h3 {
     padding-bottom: 10px;
 }
 
+.standalone h1:first-child {
+    padding-bottom: 0;
+}
+
 .imprint h1:first-child {
     padding-bottom: 20px;
 }
