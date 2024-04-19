@@ -18,3 +18,6 @@ LANGUAGE = "en-us"
 
 # Mail address for the imprint
 MAIL = "dummy@mail.com"
+
+# Directory to store entries in
+ENTRY_DIR = "templates/entry"

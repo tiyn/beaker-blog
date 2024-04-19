@@ -13,6 +13,9 @@ via plain text files.
   - [x] HTML files (.html)
   - [x] Markdown Files (.md)
 - [x] Infinite-scroll blog page
+- [x] Search page
+-   [x] Full-text search
+-   [x] Preview panel
 - [x] Archive page
   - [x] Months as headings
   - [x] Links to scrolling blog page

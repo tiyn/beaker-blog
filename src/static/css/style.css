@@ -157,6 +157,10 @@ footer .center {
     }
 }
 
+form {
+    margin-bottom: 40px;
+}
+
 .entry {
     border-radius: 0 10px 30px 0;
     margin-bottom: 20px;
@@ -182,6 +186,15 @@ h3 {
 }
 
 .entry h2:first-child {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.blogarchive h1:first-child {
+    padding-bottom: 0;
+}
+
+.blogarchive h2:first-child {
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -215,4 +228,29 @@ code {
     font-family: monospace;
     white-space: pre;
     display: inline-block
+}
+
+form.search input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 50%;
+  background: #f1f1f1;
+}
+
+form.search button[type=submit] {
+  float: left;
+  width: 5%;
+  padding: 12px;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.search::after {
+  content: "";
+  clear: both;
+  display: table;
 }

@@ -4,16 +4,16 @@ import pathlib
 from datetime import datetime
 from os import path
 
-import config
 import markdown
 
-ENTRY_DIR = "templates/entry"
+import config
+import search
+
+ENTRY_DIR = config.ENTRY_DIR
 LANGUAGE = config.LANGUAGE
 LOCAL = "de_DE.UTF-8" if LANGUAGE == "de-de" else "en_US.UTF-8"
 
 locale.setlocale(locale.LC_TIME, LOCAL)
-
-standalone_str = "Artikel" if LANGUAGE == "de-de" else "standalone"
 
 
 def gen_arch_string():
@@ -70,7 +70,7 @@ def gen_index_string():
     contents = sorted(full_list, key=os.path.getmtime)
     for file in reversed(contents):
       filename = pathlib.PurePath(file)
-      purefile = filename
+      # purefile = filename
       title = open(filename).readline().rstrip("\n")
       text = open(filename).readlines()[1:]
       filename = filename.name
@@ -161,11 +161,11 @@ def get_rss_string():
     string: rss-string of everything that is in the ENTRY_DIR.
     """
   path_ex = ENTRY_DIR
+  content_string = ""
   if path.exists(path_ex):
     name_list = os.listdir(path_ex)
     full_list = [os.path.join(path_ex, i) for i in name_list]
     contents = sorted(full_list, key=os.path.getmtime)
-    content_string = ""
     for file in reversed(contents):
       filename = pathlib.PurePath(file)
       title = open(filename).readline().rstrip("\n")
@@ -186,3 +186,66 @@ def get_rss_string():
       content_string += "</description>\n"
       content_string += "</item>\n"
   return content_string
+
+
+def gen_query_res_string(query_str):
+  """
+    Return the results of a query.
+
+    Parameters:
+    query_str (string): term to search
+
+    Returns:
+    string: html-formated search result
+    """
+  src_results = search.search(query_str)
+  res_string = ""
+  for result in src_results:
+    title = result["title"]
+    path = result["path"]
+    filename = pathlib.PurePath(path)
+    filename = filename.name
+    if filename[0] != ".":
+      filename = filename.split(".", 1)[0]
+    curr_date = datetime.fromtimestamp(os.path.getmtime(path)).strftime("%Y-%m-%d")
+    is_markdown = path.endswith(".md")
+    preview = create_preview(path, is_markdown)
+    path = "/entry/" + path.split("/", 2)[2]
+    res_string += "<div class=\"entry\">"
+    res_string += "<a href=\"" + path + "\"><h2>" + title + "</h2></a>"
+    res_string += "<small>"
+    res_string += "<a href=\"" + "/index.html#" + \
+        filename + "\">" + curr_date + "</a>"
+    res_string += "</small><br><br>"
+    res_string += preview + "</div>"
+  return res_string
+
+
+def create_preview(path, is_markdown):
+  """
+    Create a preview of a given article and return it.
+
+    Parameters:
+    path (string): path to the article
+
+    Returns:
+    string: html-formated preview
+    """
+  file = open(path, "r", encoding="utf-8")
+  first_lines = file.readlines()
+  preview = ""
+  preview_length = 3
+  for i, line in enumerate(first_lines):
+    if i == 0:
+      continue
+    if i > preview_length:
+      break
+    if not line.isspace():
+      if is_markdown:
+        preview += markdown.markdown(line)
+      else:
+        preview += line
+    else:
+      preview_length += 1
+  preview += "<br>...<br>"
+  return preview

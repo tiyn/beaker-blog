@@ -3,6 +3,7 @@
 :root {
     --bg0: rgb(255,255,255);
     --color0: rgb(0,0,120);
+    --color1: rgb(0,0,200);
     --error: rgb(255,0,0);
     --footerbg0: rgb(192,192,192);
     --link0: rgb(0,0,120);
@@ -90,4 +91,13 @@ span {
 .entry h1,
 .entry h2 {
     color: var(--text1);
+}
+
+form.search button[type=submit] {
+  background: var(--color0);
+  color: var(--bg0);
+}
+
+form.search button[type=submit]:hover {
+  background: var(--color1);
 }

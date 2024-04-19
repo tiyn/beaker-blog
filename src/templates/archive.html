@@ -1,11 +1,11 @@
 {% extends "template.html" %}
 {% block content %}
 <div class="container">
-    <div class="blogarchive">
-	<h1>{% if language=="de-de" %}Archiv{% else %}Archive{% endif %}</h1><br>
-        {% autoescape off %}
-        {{ content_string }}
-        {% endautoescape %}
-    </div>
+  <div class="blogarchive">
+    <h1>{% if language=="de-de" %}Archiv{% else %}Archive{% endif %}</h1><br>
+    {% autoescape off %}
+    {{ content_string }}
+    {% endautoescape %}
+  </div>
 </div>
 {% endblock %}
