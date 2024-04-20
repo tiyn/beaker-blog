@@ -3,6 +3,7 @@ import os
 import pathlib
 from datetime import datetime
 from os import path
+from bs4 import BeautifulSoup
 
 import markdown
 
@@ -233,20 +234,12 @@ def create_preview(path, is_markdown):
     string: html-formated preview
     """
   file = open(path, "r", encoding="utf-8")
-  first_lines = file.readlines()
+  lines = file.read()
+  if is_markdown:
+    lines += markdown.markdown(lines)
   preview = ""
-  preview_length = 3
-  for i, line in enumerate(first_lines):
-    if i == 0:
-      continue
-    if i > preview_length:
-      break
-    if not line.isspace():
-      if is_markdown:
-        preview += markdown.markdown(line)
-      else:
-        preview += line
-    else:
-      preview_length += 1
-  preview += "<br>...<br>"
+  first_p = BeautifulSoup(lines).find('p')
+  if first_p is not None:
+    preview = "\n<p>" + first_p.text + "</p>\n"
+  preview += "...<br>"
   return preview
