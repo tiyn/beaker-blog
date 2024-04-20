@@ -6,7 +6,7 @@
     <description>{{ description }}</description>
     <language>{{ language }}</language>
 <link>{{ website }}</link>
-<atom:link href="{{ website }}{{ url_for('feed') }}" rel="self" type="application/rss+xml" />
+<atom:link href="{{ website }}{{ url_for('feed') }}" rel="self" type="application/rss+xml"/>
 
 {% autoescape off %}
 {{ content_string }}

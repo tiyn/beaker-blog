@@ -10,6 +10,7 @@ import markdown
 import config
 import search
 
+WEBSITE = config.WEBSITE
 ENTRY_DIR = config.ENTRY_DIR
 LANGUAGE = config.LANGUAGE
 LOCAL = "de_DE.UTF-8" if LANGUAGE == "de-de" else "en_US.UTF-8"
@@ -176,7 +177,7 @@ def get_rss_string():
         filename = filename.split(".", 1)[0]
       content_string += "<item>\n"
       content_string += "<title>" + title + "</title>\n"
-      content_string += "<guid>" + config.WEBSITE + \
+      content_string += "<guid>" + WEBSITE + \
           "/index.html#" + filename + "</guid>\n"
       content_string += "<pubDate>" + \
           datetime.fromtimestamp(os.path.getmtime(file)).strftime(
