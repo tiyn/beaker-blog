@@ -14,11 +14,10 @@ ENTRY_DIR = config.ENTRY_DIR
 
 def createSearchableData(root):
   """
-
-    Schema definition: title(name of file), path(as ID), content(indexed but not stored), textdata (stored text content)
-    source:
-    https://appliedmachinelearning.blog/2018/07/31/developing-a-fast-indexing-and-full-text-search-engine-with-whoosh-a-pure-pythhon-library/
-    """
+  Schema definition: title(name of file), path(as ID), content(indexed but not stored), textdata (stored text content)
+  source:
+  https://appliedmachinelearning.blog/2018/07/31/developing-a-fast-indexing-and-full-text-search-engine-with-whoosh-a-pure-pythhon-library/
+  """
   schema = Schema(title=TEXT(stored=True), path=ID(stored=True), content=TEXT)
   if not os.path.exists(INDEX_DIR):
     os.mkdir(INDEX_DIR)
@@ -37,15 +36,15 @@ def createSearchableData(root):
 
 def search_times(query_str, topN):
   """
-    Search for a given term and returns a specific amount of results.
+  Search for a given term and returns a specific amount of results.
 
-    Parameters:
-    query_str (string): term to search for
-    topN (int): number of results to return
+  Parameters:
+  query_str (string): term to search for
+  topN (int): number of results to return
 
-    Returns:
-    string: html-formatted string including the hits of the search
-    """
+  Returns:
+  string: html-formatted string including the hits of the search
+  """
   ix = open_dir(INDEX_DIR)
   results = []
   with ix.searcher(weighting=scoring.BM25F) as s:
@@ -58,14 +57,14 @@ def search_times(query_str, topN):
 
 def search(query_str):
   """
-    Search for a given term and show the predefined amount of results.
+  Search for a given term and show the predefined amount of results.
 
-    Parameters:
-    query_str (string): term to search for
+  Parameters:
+  query_str (string): term to search for
 
-    Returns:
-    string: html-formatted string including the hits of the search
-    """
+  Returns:
+  string: html-formatted string including the hits of the search
+  """
   return search_times(query_str, DEF_TOPN)
 
 

@@ -21,11 +21,11 @@ locale.setlocale(locale.LC_TIME, LOCAL)
 
 def gen_arch_string():
   """
-    Creates and returns a archive string of every file in ENTRY_DIR.
+  Creates and returns a archive string of every file in ENTRY_DIR.
 
-    Returns:
-    string: html-formatted archive-string
-    """
+  Returns:
+  string: html-formatted archive-string
+  """
   path_ex = ENTRY_DIR
   if path.exists(path_ex):
     name_list = os.listdir(path_ex)
@@ -60,11 +60,11 @@ def gen_arch_string():
 
 def gen_index_string():
   """
-    Create and returns a string including every file in the ENTRY_DIR as an index.
+  Create and returns a string including every file in the ENTRY_DIR as an index.
 
-    Returns:
-    string: html-formatted index string
-    """
+  Returns:
+  string: html-formatted index string
+  """
   path_ex = ENTRY_DIR
   content_string = ""
   if path.exists(path_ex):
@@ -121,16 +121,16 @@ def absolutize_html(string):
 
 def gen_stand_string(path_ex):
   """
-    Creates a html-string for a file.
-    If the file is markdown it will convert it.
-    This functions ensures upscaling for future formats.
+  Creates a html-string for a file.
+  If the file is markdown it will convert it.
+  This functions ensures upscaling for future formats.
 
-    Parameters:
-    path_ex: path to a file.
+  Parameters:
+  path_ex: path to a file.
 
-    Returns:
-    string: html-formatted string string equivalent to the file
-    """
+  Returns:
+  string: html-formatted string string equivalent to the file
+  """
   filename = os.path.join(ENTRY_DIR, path_ex)
   content_string = ""
   if path.exists(filename):
@@ -154,15 +154,15 @@ def gen_stand_string(path_ex):
 
 def gen_md_content(path_ex, depth):
   """
-    Convert a markdown file to a html string.
+  Convert a markdown file to a html string.
 
-    Parameters:
-    path_ex (string): path to the markdown file
-    depth (int): starting depth for markdown headings
+  Parameters:
+  path_ex (string): path to the markdown file
+  depth (int): starting depth for markdown headings
 
-    Returns:
-    string: html-formatted string string equivalent to the markdown file
-    """
+  Returns:
+  string: html-formatted string string equivalent to the markdown file
+  """
   content_string = ""
   if path.exists(path_ex):
     header = "#"
@@ -179,11 +179,11 @@ def gen_md_content(path_ex, depth):
 
 def get_rss_string():
   """
-    Create a rss-string of the blog and return it.
+  Create a rss-string of the blog and return it.
 
-    Returns:
-    string: rss-string of everything that is in the ENTRY_DIR.
-    """
+  Returns:
+  string: rss-string of everything that is in the ENTRY_DIR.
+  """
   locale.setlocale(locale.LC_TIME, "en_US.UTF-8")
   path_ex = ENTRY_DIR
   content_string = ""
@@ -218,14 +218,14 @@ def get_rss_string():
 
 def gen_query_res_string(query_str):
   """
-    Return the results of a query.
+  Return the results of a query.
 
-    Parameters:
-    query_str (string): term to search
+  Parameters:
+  query_str (string): term to search
 
-    Returns:
-    string: html-formated search result
-    """
+  Returns:
+  string: html-formated search result
+  """
   src_results = search.search(query_str)
   res_string = ""
   for result in src_results:
@@ -251,14 +251,14 @@ def gen_query_res_string(query_str):
 
 def create_preview(path, is_markdown):
   """
-    Create a preview of a given article and return it.
+  Create a preview of a given article and return it.
 
-    Parameters:
-    path (string): path to the article
+  Parameters:
+  path (string): path to the article
 
-    Returns:
-    string: html-formated preview
-    """
+  Returns:
+  string: html-formated preview
+  """
   file = open(path, "r", encoding="utf-8")
   lines = file.read()
   if is_markdown:
