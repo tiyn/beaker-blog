@@ -1,4 +1,4 @@
-from flask import Flask, abort, make_response, render_template, request
+from flask import (Flask, abort, make_response, redirect, render_template, request, url_for)
 from flask_font_awesome import FontAwesome
 
 import config
@@ -28,8 +28,12 @@ def page_not_found(e):
                          language=LANGUAGE), 404
 
 
-@app.route("/")
 @app.route("/index.html")
+def index_re():
+  return redirect(url_for("index"))
+
+
+@app.route("/")
 def index():
   content = con_gen.gen_index_string()
   return render_template("index.html",
@@ -40,8 +44,12 @@ def index():
                          language=LANGUAGE)
 
 
-@app.route("/search", methods=["GET", "POST"])
 @app.route("/search.html", methods=["GET", "POST"])
+def search_re():
+  return redirect(url_for("search"))
+
+
+@app.route("/search", methods=["GET", "POST"])
 def search():
   form = SearchForm()
   if request.method == "POST":
@@ -63,8 +71,12 @@ def search():
                          language=LANGUAGE), 200
 
 
-@app.route("/imprint")
 @app.route("/imprint.html")
+def imprint_re():
+  return redirect(url_for("imprint"))
+
+
+@app.route("/imprint")
 def imprint():
   return render_template("imprint.html",
                          title=TITLE,
@@ -74,8 +86,12 @@ def imprint():
                          language=LANGUAGE)
 
 
-@app.route("/archive")
 @app.route("/archive.html")
+def archive_re():
+  return redirect(url_for("archive"))
+
+
+@app.route("/archive")
 def archive():
   content = con_gen.gen_arch_string()
   return render_template("archive.html",
@@ -101,14 +117,20 @@ def entry(path):
 
 @app.route("/feed.xml")
 @app.route("/rss.xml")
+@app.route("/rss")
+def feed_re():
+  return redirect(url_for("feed"))
+
+
+@app.route("/feed")
 def feed():
   content = con_gen.get_rss_string()
-  rss_xml = render_template("rss.xml",
-                            content_string=content,
-                            title=TITLE,
-                            description=DESCRIPTION,
-                            website=WEBSITE)
-  response = make_response(rss_xml)
+  feed_xml = render_template("feed.xml",
+                             content_string=content,
+                             title=TITLE,
+                             description=DESCRIPTION,
+                             website=WEBSITE)
+  response = make_response(feed_xml)
   response.headers["Content-Type"] = "application/rss+xml"
   return response
 
