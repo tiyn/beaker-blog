@@ -1,11 +1,12 @@
 import locale
 import os
 import pathlib
+import urllib.parse
 from datetime import datetime
 from os import path
-from bs4 import BeautifulSoup
 
 import markdown
+from bs4 import BeautifulSoup
 
 import config
 import search
@@ -92,7 +93,30 @@ def gen_index_string():
       if file.endswith(".md"):
         content_string += gen_md_content(file, 2)
       content_string += "</div>"
+      content_string = absolutize_html(content_string)
   return content_string
+
+
+def absolutize_html(string):
+  """
+  Creates a html string from another string that only uses absolute links that use the full domain.
+
+  Parameters:
+  string: html-formatted string.
+
+  Returns:
+  string: html-formatted string with absolute linksn
+  """
+  soup = BeautifulSoup(string, "html.parser")
+  for a_tag in soup.find_all("a"):
+    href = str(a_tag.get("href"))
+    if href.startswith("/") or href.startswith("."):
+      a_tag["href"] = urllib.parse.urljoin(WEBSITE, href)
+  for img_tag in soup.find_all("img"):
+    src = str(img_tag.get("src"))
+    if src.startswith("/") or src.startswith("."):
+      img_tag["src"] = urllib.parse.urljoin(WEBSITE, src)
+  return str(soup)
 
 
 def gen_stand_string(path_ex):
@@ -124,6 +148,7 @@ def gen_stand_string(path_ex):
         content_string += line
     if filename.endswith(".md"):
       content_string += gen_md_content(filename, 1)
+    content_string = absolutize_html(content_string)
   return content_string
 
 
@@ -140,10 +165,8 @@ def gen_md_content(path_ex, depth):
     """
   content_string = ""
   if path.exists(path_ex):
-    filename = path_ex.split(".", 1)
-    fileend = filename[len(filename) - 1]
     header = "#"
-    for i in range(depth):
+    for _ in range(depth):
       header += "#"
     header += " "
     markdown_lines = open(path_ex, "r").readlines()[1:]
@@ -183,8 +206,10 @@ def get_rss_string():
           datetime.fromtimestamp(os.path.getmtime(file)).strftime(
               "%a, %d %b %Y %H:%M:%S") + " +0100</pubDate>\n"
       content_string += "<description>\n<![CDATA[<html>\n<head>\n</head>\n<body>\n"
+      html_string = ""
       for line in text:
-        content_string += line
+        html_string += line
+      content_string += absolutize_html(html_string)
       content_string += "\n</body></html>\n]]>\n</description>\n"
       content_string += "</item>\n"
   locale.setlocale(locale.LC_TIME, LOCAL)
