@@ -1,11 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang={% if language=="de-de" %}de{% else %}en{% endif %}>
 
 <head>
   <title>{{ title }}</title>
   <link href="{{ url_for('static', filename='css/' + style + '.css') }}" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='graphics/logo.png') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='graphics/logo.png')}}">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width" initial-scale=1.0>
+  <meta name="viewport" content="width=device-width">
   {{ font_awesome.load_js() }}
 </head>
 
@@ -13,7 +14,9 @@
   <!-- Menu -->
   <div class="main-menu-dropdown">
     <a href="{{ url_for('index') }}">
-      <img class="logo" src="{{ url_for('static', filename='graphics/logo.png') }}">
+      <img class="logo" src="{{ url_for('static', filename='graphics/logo.png') }}" alt="Logo von
+      Mittelerde mit Marten. Zu sehen sind 3 'M's mit Serifen, wobei die beiden Äußeren etwas
+      kleiner sind">
       {{ stitle }}
     </a>
     <input type="checkbox" id="main-menu-check">

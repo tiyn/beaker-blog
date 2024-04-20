@@ -258,3 +258,10 @@ form.search::after {
   clear: both;
   display: table;
 }
+
+.standalone img {
+  width: 50%;
+}
+.entry img {
+  width: 50%;
+}
