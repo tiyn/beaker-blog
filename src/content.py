@@ -159,6 +159,7 @@ def get_rss_string():
     Returns:
     string: rss-string of everything that is in the ENTRY_DIR.
     """
+  locale.setlocale(locale.LC_TIME, "en_US.UTF-8")
   path_ex = ENTRY_DIR
   content_string = ""
   if path.exists(path_ex):
@@ -178,12 +179,13 @@ def get_rss_string():
           "/index.html#" + filename + "</guid>\n"
       content_string += "<pubDate>" + \
           datetime.fromtimestamp(os.path.getmtime(file)).strftime(
-              "%Y-%m-%d") + "</pubDate>\n"
-      content_string += "<description>"
+              "%a, %d %b %Y %H:%M:%S") + " +0100</pubDate>\n"
+      content_string += "<description>\n<![CDATA[<html>\n<head>\n</head>\n<body>\n"
       for line in text:
         content_string += line
-      content_string += "</description>\n"
+      content_string += "\n</body></html>\n]]>\n</description>\n"
       content_string += "</item>\n"
+  locale.setlocale(locale.LC_TIME, LOCAL)
   return content_string
 
 

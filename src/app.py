@@ -129,7 +129,8 @@ def feed():
                              content_string=content,
                              title=TITLE,
                              description=DESCRIPTION,
-                             website=WEBSITE)
+                             website=WEBSITE,
+                             language=LANGUAGE)
   response = make_response(feed_xml)
   response.headers["Content-Type"] = "application/rss+xml"
   return response
