@@ -15,6 +15,7 @@ WEBSITE = config.WEBSITE
 ENTRY_DIR = config.ENTRY_DIR
 LANGUAGE = config.LANGUAGE
 LOCAL = "de_DE.UTF-8" if LANGUAGE == "de-de" else "en_US.UTF-8"
+TIMEZONE = config.TIMEZONE
 
 locale.setlocale(locale.LC_TIME, LOCAL)
 
@@ -184,7 +185,6 @@ def get_rss_string():
   Returns:
   string: rss-string of everything that is in the ENTRY_DIR.
   """
-  locale.setlocale(locale.LC_TIME, "en_US.UTF-8")
   path_ex = ENTRY_DIR
   content_string = ""
   if path.exists(path_ex):
@@ -202,9 +202,11 @@ def get_rss_string():
       content_string += "<title>" + title + "</title>\n"
       content_string += "<guid>" + WEBSITE + \
           "/index.html#" + filename + "</guid>\n"
+      locale.setlocale(locale.LC_TIME, "en_US.UTF-8")
       content_string += "<pubDate>" + \
           datetime.fromtimestamp(os.path.getmtime(file)).strftime(
-              "%a, %d %b %Y %H:%M:%S") + " +0100</pubDate>\n"
+              "%a, %d %b %Y %H:%M:%S") + " " + TIMEZONE + "</pubDate>\n"
+      locale.setlocale(locale.LC_TIME, LOCAL)
       content_string += "<description>\n<![CDATA[<html>\n<head>\n</head>\n<body>\n"
       html_string = ""
       for line in text:
@@ -212,7 +214,6 @@ def get_rss_string():
       content_string += absolutize_html(html_string)
       content_string += "\n</body></html>\n]]>\n</description>\n"
       content_string += "</item>\n"
-  locale.setlocale(locale.LC_TIME, LOCAL)
   return content_string
 
 

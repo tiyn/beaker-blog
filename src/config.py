@@ -21,3 +21,6 @@ MAIL = "dummy@mail.com"
 
 # Directory to store entries in
 ENTRY_DIR = "templates/entry"
+
+# Set the timezone of your blog
+TIMEZONE = "+0000"
