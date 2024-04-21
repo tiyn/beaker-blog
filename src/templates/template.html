@@ -35,9 +35,9 @@
   <!-- Content -->
   <footer>
     <div class="center">
-      <a href="{{ url_for('imprint') }}">
-        {% if language=="de-de" %}Impressum und Kontakt{% else %}Imprint and Contact{% endif %}
-      </a><br>
+      <a href="{{ url_for('imprint') }}">{% if language=="de-de" %}Impressum und Kontakt{% else %}Imprint and Contact{%
+        endif %}</a>.<br>
+      <a href="{{ url_for('feed') }}">{% if language=="de-de" %}RSS-Feed{% else %}RSS feed{% endif %}</a>.<br>
       Made with <a href="https://github.com/tiyn/beaker-blog">Beaker Blog</a>.
     </div>
   </footer>
