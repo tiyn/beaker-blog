@@ -8,7 +8,7 @@ from os import path
 
 import markdown
 from bs4 import BeautifulSoup
-from gtts import gTTS
+from gtts import gTTS, gTTSError
 
 import config
 import search
@@ -320,7 +320,12 @@ def prepare_tts():
   clean_text = ""
   for f in files:
     clean_text = get_text_only(f)
-    tts = gTTS(clean_text, lang=LANGUAGE.split("-")[0])
     _, tail = os.path.split(f)
     new_filename = "static/tmp/" + os.path.splitext(tail)[0] + ".mp3"
-    tts.save(new_filename)
+    try:
+      tts = gTTS(clean_text, lang=LANGUAGE.split("-")[0])
+      tts.save(new_filename)
+    except gTTSError as e:
+      print("Too many request to the google servers. Try it again later.")
+      os.remove(new_filename)
+      return e
