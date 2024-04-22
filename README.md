@@ -22,6 +22,7 @@ via plain text files.
   - [x] Links to standalone article
 - [x] Standalone article page
   - [x] Links to scrolling blog page
+  - [x] TTS Functionality
 - [x] RSS feed
 - [x] Navigation
   - [x] Header

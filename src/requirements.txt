@@ -5,3 +5,4 @@ WTForms
 Flask_WTF
 Font-Awesome-Flask
 BeautifulSoup4
+gTTS

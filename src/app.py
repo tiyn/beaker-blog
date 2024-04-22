@@ -137,4 +137,5 @@ def feed():
 
 
 if __name__ == "__main__":
+  con_gen.prepare_tts()
   app.run(host="0.0.0.0")

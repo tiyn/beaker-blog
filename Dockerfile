@@ -2,11 +2,9 @@ FROM python:3
 
 MAINTAINER tiyn tiyn@mail-mk.eu
 
-COPY src /blog
-
-WORKDIR /blog
-
-RUN pip3 install -r requirements.txt
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update && \
     apt-get install -y locales && \
@@ -14,9 +12,13 @@ RUN apt-get update && \
     sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+RUN apt-get install -y espeak
+
+COPY src /blog
+
+WORKDIR /blog
+
+RUN pip3 install -r requirements.txt
 
 VOLUME /blog/templates/entry
 

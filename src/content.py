@@ -1,3 +1,4 @@
+import glob
 import locale
 import os
 import pathlib
@@ -7,6 +8,7 @@ from os import path
 
 import markdown
 from bs4 import BeautifulSoup
+from gtts import gTTS
 
 import config
 import search
@@ -144,6 +146,11 @@ def gen_stand_string(path_ex):
     content_string += "<a href=\"" + "/index.html#" + \
         filename_no_end + "\">" + curr_date + "</a>"
     content_string += "<br><br>\n"
+    if os.path.isfile("static/tmp/" + filename_no_end + ".mp3"):
+      content_string += "<audio controls>\n"
+      content_string += '<source src="/static/tmp/' + filename_no_end + '.mp3" type="audio/mp3">\n'
+      content_string += "</audio>\n"
+    content_string += "<br><br>\n"
     if filename.endswith(".html"):
       for line in text:
         content_string += line
@@ -270,3 +277,50 @@ def create_preview(path, is_markdown):
     preview = "\n<p>" + first_p.text + "</p>\n"
   preview += "...<br>"
   return preview
+
+
+def get_text_only(filename):
+  """
+  Convert a file to text only to use in tts
+
+  Parameters:
+  path (string): path to the article
+
+  Returns:
+  string: unformatted string containing the contents of the file
+  """
+  # filename = os.path.join(ENTRY_DIR, path)
+  clean_text = ""
+  if path.exists(filename):
+    title = open(filename).readline().rstrip("\n")
+    text = open(filename).readlines()[1:]
+    filename_no_end = filename.split(".", 1)[0]
+    filename_no_end = filename_no_end.split("/")[-1]
+    content_string = ""
+    if filename.endswith(".html"):
+      for line in text:
+        content_string += line
+    if filename.endswith(".md"):
+      content_string += gen_md_content(filename, 1)
+    content_string = absolutize_html(content_string)
+    soup = BeautifulSoup(content_string, "html.parser")
+    tag_to_remove = soup.find("figure")
+    if tag_to_remove:
+      tag_to_remove.decompose()
+    clean_text = soup.get_text(separator=" ")
+    clean_text = title + "\n\n" + clean_text
+  return clean_text
+
+
+def prepare_tts():
+  files = glob.glob('static/tmp/*')
+  for f in files:
+    os.remove(f)
+  files = glob.glob('templates/entry/*')
+  clean_text = ""
+  for f in files:
+    clean_text = get_text_only(f)
+    tts = gTTS(clean_text, lang=LANGUAGE.split("-")[0])
+    _, tail = os.path.split(f)
+    new_filename = "static/tmp/" + os.path.splitext(tail)[0] + ".mp3"
+    tts.save(new_filename)

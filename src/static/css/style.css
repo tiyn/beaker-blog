@@ -269,6 +269,12 @@ form.search::after {
 .standalone img {
   width: 50%;
 }
+
 .entry img {
   width: 50%;
+}
+
+audio {
+    width: 50%;
+    height: 5vh;
 }
