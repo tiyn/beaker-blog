@@ -121,6 +121,10 @@ def entry(path):
 def feed_re():
   return redirect(url_for("feed"))
 
+@app.route("/robots.txt")
+def robots():
+  return render_template("robots.txt")
+
 
 @app.route("/feed")
 def feed():
